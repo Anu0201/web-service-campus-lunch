@@ -9,11 +9,22 @@
 <body>
   <header>
     <h1>Campus Lunch</h1>
-    <p class="subtitle">Monday's menu</p>
+    <p class="subtitle" id="subtitle">Monday's menu</p>
   </header>
 
   <main>
-    <section aria-label="Monday meals">
+    <form class="controls">
+      <label for="day-select">Day</label>
+      <select id="day-select" name="day">
+        <option value="Monday" selected>Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+      </select>
+    </form>
+
+    <p id="meal-count" class="meal-count" aria-live="polite"></p>
+
+    <section aria-label="Meals for the selected day">
       <ul id="meal-list" class="meal-list">
         <!-- Meal cards are inserted here by app.js -->
       </ul>

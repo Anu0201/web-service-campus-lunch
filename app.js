@@ -104,16 +104,45 @@ function createMealCard(meal) {
   return item;
 }
 
-// Render Monday's meals into the meal list
-function renderMondayMeals() {
+// Render the meals for a given day into the meal list, update the
+// subtitle and the count message, and show an empty message if needed.
+function renderMeals(day) {
   const list = document.getElementById("meal-list");
+  const subtitle = document.getElementById("subtitle");
+  const count = document.getElementById("meal-count");
+
   list.innerHTML = "";
 
-  const mondayMeals = menuData.filter((meal) => meal.day === "Monday");
+  const dayMeals = menuData.filter((meal) => meal.day === day);
 
-  mondayMeals.forEach((meal) => {
+  subtitle.textContent = day + "'s menu";
+
+  if (dayMeals.length === 0) {
+    count.textContent = "No meals available for " + day + ".";
+    const empty = document.createElement("li");
+    empty.className = "empty-message";
+    empty.textContent = "No meals are listed for " + day + " yet. Please check back later.";
+    list.appendChild(empty);
+    return;
+  }
+
+  count.textContent =
+    dayMeals.length + (dayMeals.length === 1 ? " meal" : " meals") + " available.";
+
+  dayMeals.forEach((meal) => {
     list.appendChild(createMealCard(meal));
   });
 }
 
-renderMondayMeals();
+// Wire up the day selector so changing it updates the meal cards and count
+function initDaySelector() {
+  const select = document.getElementById("day-select");
+
+  select.addEventListener("change", () => {
+    renderMeals(select.value);
+  });
+
+  renderMeals(select.value);
+}
+
+initDaySelector();
