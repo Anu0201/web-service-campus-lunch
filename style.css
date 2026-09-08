@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+header {
+  padding: 24px 16px 8px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 4px;
+  font-size: 1.8rem;
+}
+
+.subtitle {
+  margin: 0;
+  color: #333333;
+}
+
+main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.meal-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.meal-card {
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.meal-name {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+}
+
+.meal-description {
+  margin: 0 0 12px;
+  color: #333333;
+}
+
+.meal-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.meal-price {
+  font-weight: bold;
+}
+
+.meal-label {
+  border: 1px solid #999999;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.85rem;
+}
+
+footer {
+  padding: 16px;
+  text-align: center;
+  color: #555555;
+  font-size: 0.85rem;
+}
+
+/* Keep cards stacked and readable on narrow phone screens */
+@media (max-width: 390px) {
+  main {
+    padding: 12px;
+  }
+
+  .meal-card {
+    padding: 12px;
+  }
+}
